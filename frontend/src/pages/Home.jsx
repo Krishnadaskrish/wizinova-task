@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { Axios } from "../App";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 function Upload() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -39,7 +40,7 @@ function Upload() {
 
       if (response.status === 201) {
         toast.success("File Uploaded!");
-        navigate("");
+        navigate("/getpost");
 
         setIsUploaded(true);
       } else {
@@ -120,7 +121,12 @@ function Upload() {
           )}
         </div>
       )}
+
+  <Link to="/Bulkmail" className="flex justify-center item-center">
+                <u>Xl sheet mail option for multiple users</u>
+              </Link>
     </div>
+    
   );
 }
 

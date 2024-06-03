@@ -37,6 +37,8 @@ const BulkEmailUploader = () => {
   };
 
   return (
+    <div className="bg-gray-900 text-gray-50 h-screen w-screen flex flex-col">
+
     <div className="container mx-auto p-4">
       <div className="flex flex-col items-center">
         <input
@@ -53,6 +55,7 @@ const BulkEmailUploader = () => {
           Send Emails
         </button>
       </div>
+    </div>
     </div>
   );
 };

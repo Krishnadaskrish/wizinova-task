@@ -26,11 +26,16 @@ function GetPost() {
   }, []);
 
   return (
+    <div className="bg-gray-900  h-screen w-screen flex flex-col">
+
     <div className="flex flex-wrap justify-center">
       {posts.map((post, index) => (
         <PostCard key={index} post={post} />
       ))}
     </div>
+    </div>
+   
+   
   );
 }
 

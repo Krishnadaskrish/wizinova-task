@@ -48,12 +48,9 @@ function Login() {
 
   return (
     <>
-      <img
-        className="float-left mt-16 ml-14 animate-up"
-        style={{ width: "650px", height: "650px" }}
-        src="welcome.png"
-        alt="logimg"
-      />
+        <div className="bg-gray-900 text-gray-50 h-screen w-screen flex flex-col">
+
+     
       <div className="float-left w-1/2 h-screen ">
         <div className="ml-48 pt-44">
           <h1 className="text-3xl font-medium mt-14">Welcome.</h1>
@@ -115,6 +112,7 @@ function Login() {
             <u>Signup</u>
           </p>
         </div>
+      </div>
       </div>
     </>
   );

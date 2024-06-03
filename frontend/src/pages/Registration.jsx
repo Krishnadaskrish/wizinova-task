@@ -55,23 +55,12 @@ function Page() {
 
   return (
     <>
-      <img
-        style={{
-          width: "180px",
-          marginLeft: "610px",
-          marginTop: "25px",
-          marginRight: "100px",
-        }}
-      />
-      <img
-        className="float-left mt-14 ml-14 animate-slide-left"
-        style={{ width: "700px", height: "700px" }}
-        src="loginn.png"
-        alt="logimg"
-      />
+    <div className="bg-gray-900 text-gray-50 h-screen w-screen flex flex-col">
+     
+    
       <div
         style={{ position: "absolute", marginLeft: "645px" }}
-        className="float-left w-1/2 h-screen "
+        className="float-right w-1/2 h-screen "
       >
         <div className="ml-48 pt-44">
           <h1
@@ -177,6 +166,7 @@ function Page() {
             <u>Login</u>
           </p>
         </div>
+      </div>
       </div>
     </>
   );
