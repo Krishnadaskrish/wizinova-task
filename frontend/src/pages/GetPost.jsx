@@ -15,7 +15,7 @@ function GetPost() {
 
   const handleDeletes = async (productId) => {
     try {
-      const response = await Axios.delete(`/api/admin/products/${productId}`);
+      const response = await Axios.delete(`/api/delete/${productId}`);
       if (response.status === 204) {
         setPosts((prevProducts) =>
           prevProducts.filter((product) => product._id !== productId)

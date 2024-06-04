@@ -181,11 +181,10 @@ module.exports = {
       });
   },
 
-  editProduct: async (req, res) => {
+  editPost: async (req, res) => {
     try {
       const { id } = req.params;
-      const { description } = req.body;
-      const Updatedproduct = await Product.findByIdAndUpdate(id, req.body, {
+      const Updatedproduct = await Post.findByIdAndUpdate(id, req.body, {
         new: true,
       });
       res.status(201).json({
@@ -198,11 +197,11 @@ module.exports = {
     }
   },
 
-  deleteProduct: async (req, res) => {
+  deletePost: async (req, res) => {
     try {
       const { id } = req.params;
-      await Product.findByIdAndDelete(id);
-      res.status(201).json({
+      await Post.findByIdAndDelete(id);
+      res.status(204).json({
         status: "success",
         message: "deletes successfully",
       });

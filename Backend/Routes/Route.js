@@ -17,6 +17,8 @@ userRouter
 .post('/submitOtp',TryCatch(MainController.submitOtp))
 .post('/create',upload,verifyToken,TryCatch(MainController.createPost))
 .get('/getpost',TryCatch(MainController.getAllPost))
+.patch('/edit/:id',TryCatch(MainController.editPost))
+.delete('/delete/:id',TryCatch(MainController.deletePost))
 .post('/upload-excel', uploads.single('file'),TryCatch(MainController.BulkMail));
 
 
