@@ -13,13 +13,13 @@ const uploads = multer({ storage: multer.memoryStorage() });
 userRouter
 .post('/register',TryCatch(MainControllers.createUser))
 .post('/login',TryCatch(MainControllers.userLongin))
-.post('/sendOtp',TryCatch(MainController.ForgotPasswordOtp))
-.post('/submitOtp',TryCatch(MainController.submitOtp))
-.post('/create',upload,verifyToken,TryCatch(MainController.createPost))
-.get('/getpost',TryCatch(MainController.getAllPost))
-.patch('/edit/:id',TryCatch(MainController.editPost))
-.delete('/delete/:id',TryCatch(MainController.deletePost))
-.post('/upload-excel', uploads.single('file'),TryCatch(MainController.BulkMail));
+.post('/sendOtp',verifyToken,TryCatch(MainController.ForgotPasswordOtp))
+.post('/submitOtp',verifyToken,TryCatch(MainController.submitOtp))
+.post('/create',verifyToken,upload,verifyToken,TryCatch(MainController.createPost))
+.get('/getpost',verifyToken,TryCatch(MainController.getAllPost))
+.patch('/edit/:id',verifyToken,TryCatch(MainController.editPost))
+.delete('/delete/:id',verifyToken,TryCatch(MainController.deletePost))
+.post('/upload-excel',verifyToken, uploads.single('file'),TryCatch(MainController.BulkMail));
 
 
 module.exports = userRouter

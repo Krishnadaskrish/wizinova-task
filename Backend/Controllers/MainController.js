@@ -1,12 +1,10 @@
 const User = require("../Model/UserModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const crypto = require("crypto");
 const transporter = require("../config/Nodemailer");
 const Post = require("../Model/PostSchema");
 const otpModel = require("../Model/OtpModel");
 const XLSX = require("xlsx");
-const OtpModel = require("../Model/OtpModel");
 
 const otpStore = {};
 
@@ -65,16 +63,16 @@ module.exports = {
       }
     );
     console.log(token);
-    res
-      .status(200)
-      .json({
-        status: "success",
-        message: "Login successful",
-        data: token,
-        email,
-        id,
-      });
+    res.status(200).json({
+      status: "success",
+      message: "Login successful",
+      data: token,
+      email,
+      id,
+    });
   },
+
+  //user Forgot password (POST api/sendOtp)
 
   ForgotPasswordOtp: async (req, res) => {
     const { email } = req.body;
@@ -119,6 +117,8 @@ module.exports = {
     });
   },
 
+  //Reset password (POST api/sendOtp)
+
   resetPassword: async (req, res) => {
     const { email } = req.body;
     const { otp, newPassword } = req.body;
@@ -136,6 +136,8 @@ module.exports = {
       .status(200)
       .json({ status: "success", message: "Password reset successfully" });
   },
+
+  //submit Otp (POST api/sendOtp)
 
   submitOtp: async (req, res) => {
     const { otp, email, newPassword } = req.body;
@@ -170,16 +172,18 @@ module.exports = {
     });
   },
 
+  //get All post (Get api/getPost)
+
   getAllPost: async (req, res) => {
     const post = await Post.find();
-    res
-      .status(200)
-      .json({
-        status: "success",
-        message: "successfully fetced post",
-        data: post,
-      });
+    res.status(200).json({
+      status: "success",
+      message: "successfully fetced post",
+      data: post,
+    });
   },
+
+  //Edit Post (Patch api/edit/:id)
 
   editPost: async (req, res) => {
     try {
@@ -197,6 +201,8 @@ module.exports = {
     }
   },
 
+  //Delete Post (Get api/delete/:id)
+
   deletePost: async (req, res) => {
     try {
       const { id } = req.params;
@@ -209,6 +215,8 @@ module.exports = {
       console.log(error);
     }
   },
+
+  // send Bulk mail to the enterd users in an xl sheet (Post /api/upload-excel)
 
   BulkMail: async (req, res) => {
     if (!req.file) {
