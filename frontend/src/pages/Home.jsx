@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { Axios } from "../App";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 function Upload() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -122,11 +122,15 @@ function Upload() {
         </div>
       )}
 
-  <Link to="/Bulkmail" className="flex justify-center item-center">
-                <u>Xl sheet mail option for multiple users</u>
-              </Link>
+      <div className="flex justify-center">
+        <Link
+          to="/Bulkmail"
+          className="mt-8 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-lg w-60 "
+        >
+          <u>upload-excel sheet mail option for multiple users</u>
+        </Link>
+      </div>
     </div>
-    
   );
 }
 
